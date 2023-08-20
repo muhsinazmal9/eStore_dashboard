@@ -23,7 +23,7 @@ class ProfileController extends Controller
 
     // DP UPLOAD
     function profile_picture_upload (Request $request) {
-        
+
         $request->validate([
             'profile_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
@@ -40,5 +40,18 @@ class ProfileController extends Controller
         ]);
 
         return back();
+    }
+
+    function password_change (Request $request) {
+        $request->validate([
+            'old_password' => 'required|current_password:web',
+            'password' => 'required|min:8|confirmed',
+            'password_confirmation' => 'required|min:8',
+        ] , [
+            'required' => 'Give pass bruh!',
+            'old_password.current_password' => 'password to milenai...',
+        ]
+    );
+        return $request;
     }
 }
