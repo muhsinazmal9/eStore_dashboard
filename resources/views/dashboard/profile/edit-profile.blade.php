@@ -9,7 +9,7 @@
                     <form action="{{ url('edit-profile/profile_picture/upload') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
-                            <h6 class="card-title">Update DP</h6>
+                            <h6 class="card-title">Update Profile Picture</h6>
                             <label class="form-label" for="formFile">Upload your file</label>
                             <input class="form-control" type="file" id="formFile" name="profile_picture">
                         </div>
@@ -25,14 +25,13 @@
                 </div>
             </div>
         </div>
-
         {{-- password --}}
         <div class="col-md-6 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
                     <form action="{{ url('edit-profile/password/change') }}" method="POST">
                         @csrf
-                        <h6 class="card-title">Password Change</h6>
+                        <h6 class="card-title">Update Password</h6>
                         <div class="mb-3">
                             <label class="form-label" for="pass">Old Password</label>
                             <input class="form-control" type="password" id="pass" name="old_password" placeholder="●●●●●●●●">
@@ -60,11 +59,38 @@
                                 {{ $message }}
                             </div>
                         @enderror
+                        @if(session()->has('msg'))
+                            <div class="alert alert-success">
+                                {{ session()->get('msg') }}
+                            </div>
+                        @endif
                         <button class="btn btn-primary" type="submit">Upload</button>
                     </form>
                 </div>
             </div>
         </div>
-        
+    </div>
+    <div class="row">
+        {{-- cover photo --}}
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <form action="{{ url('edit-profile/cover_photo/upload') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <h6 class="card-title">Update Cover Photo</h6>
+                    <div class="mb-3">
+                        <label class="form-label" for="cover_photo_update">Upload your file</label>
+                        <input class="form-control" type="file" id="cover_photo_update" name="cover_photo">
+                    </div>
+                    @error('cover_photo')
+                        <div class="alert alert-danger">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                    <button class="btn btn-primary" type="submit">Upload</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection

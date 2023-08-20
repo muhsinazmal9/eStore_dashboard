@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="position-relative">
                     <figure class="overflow-hidden mb-0 d-flex justify-content-center">
-                        <img src="{{ asset('assets_backend') }}/images/others/profile-cover.jpg" class="rounded-top" alt="profile cover">
+                        <img src="{{ asset('uploads/cover_photos') }}/{{ Auth::user()->cover_photo }}" class="rounded-top" alt="{{ Auth::user()->cover_photo }}">
                     </figure>
                     <div
                         class="d-flex justify-content-between align-items-center position-absolute top-90 w-100 px-2 px-md-4 mt-n4">

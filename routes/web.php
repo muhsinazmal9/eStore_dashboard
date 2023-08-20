@@ -35,3 +35,4 @@ Route::get('/profile', [ProfileController::class, 'profile']);
 Route::get('/edit-profile', [ProfileController::class, 'edit_profile']);
 Route::post('/edit-profile/profile_picture/upload', [ProfileController::class, 'profile_picture_upload']);
 Route::post('/edit-profile/password/change', [ProfileController::class, 'password_change']);
+Route::post('edit-profile/cover_photo/upload', [ProfileController::class, 'cover_photo_upload']);
